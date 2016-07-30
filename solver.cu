@@ -232,7 +232,7 @@ int main(int argc, char const *argv[])
 		Threads = #walls * #possible directions
 
 	*/
-	dim3 grid(16,4);
+	dim3 grid(NUM_WALLS, POSSIBLE_DIRECTIONS);
 	CUDA_solveForAllWalls <<<possibleSpaces, grid>>> (d_walls, d_moves, oppPos);
 
 	checkCudaError(cudaGetLastError(), "Checking Last Error, Kernel Launch");
